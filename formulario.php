@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="formulario.php" method="post">
+    <form action="informacion.php" method="post">
         Nombre: <input type="text" name="nombre"><br>
         Email:  <input type="text" name="email"><br>
         Edad:   <input type="text" name="edad"><br>

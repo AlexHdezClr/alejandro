@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="informacion.php" method="post">
+    <form action="formulario.php" method="post">
         Nombre: <input type="text" name="nombre"><br>
         Email:  <input type="text" name="email"><br>
         Edad:   <input type="text" name="edad"><br>
@@ -36,12 +36,12 @@
         $edadVal=false;
         $paisVal=false;
 
-        if (!$nombre==""){
+        if (preg_match("/^\s*$/", $nombre)){
             $nombreVal=true;
             $_SESSION['nombre']=$nombre;
             echo $_SESSION['nombre'];
         }else{
-            echo "Hubo un problema con el nombre<br>";
+            $_SESSION['nombre']="Hubo un problema con el nombre<br>";
         }
         if (preg_match("/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/",$email)){
             $emailVal=true;
@@ -49,14 +49,14 @@
             echo $email;
         }else{
             echo $email;
-            echo "Hubo un problema con el correo<br>";
+            $_SESSION['email']="Hubo un problema con el correo<br>";
         }
         if ((preg_match("/[0-9]{1,3}$/",$edad))){
             $edadVal=true;
             $_SESSION['edad']=$edad;
             echo $edad;
         }else{
-            echo "Hubo un problema con la edad<br>";
+            $_SESSION['edad']="Hubo un problema con la edad<br>";
         }
 
         if (isset($pais)){
@@ -64,7 +64,7 @@
             $_SESSION['pais']=$pais;
             echo $pais;
         }else{
-            echo "Hubo un problema con el país<br>";
+            $_SESSION['pais']="Hubo un problema con el país<br>";
         }
 
 
